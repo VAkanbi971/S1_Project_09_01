@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--
+      New Perspectives on HTML5 and CSS3, 7th Edition
+      Tutorial 7
+      Case Problem 1
+
+      CGIP Registration Form
+      Author: Victor Akanbi
+      Date:   1.14.19
+
+      Filename:   index.html
+
+   -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CGIP Registration Form</title>
+    <link href="cg_base.css" rel="stylesheet" />
+    <link href="cg_styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="cg_forms.css" />
+    <link rel="stylesheet" href="cg_validate.css" />
+    <script src="cg_script.js"></script>
+</head>
+
+<body>
+    <header>
+        <img src="cg_logo.png" alt="Computer Graphics and Image Processing" id="logoimg" />
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">home page</a></li>
+            <li><a href="#">keynote address</a></li>
+            <li><a href="#">speakers</a></li>
+            <li class="newgroup"><a href="#">general session</a></li>
+            <li><a href="#">abstracts</a></li>
+            <li><a href="#">programs</a></li>
+            <li><a href="#">workshops</a></li>
+            <li class="newgroup"><a href="#">committees</a></li>
+            <li><a href="#">executive session</a></li>
+            <li><a href="#">advisory council</a></li>
+            <li class="newgroup"><a href="#">travel info</a></li>
+            <li><a href="#">accommodations</a></li>
+            <li><a href="#">banquet</a></li>
+            <li><a href="#">family attractions</a></li>
+            <li class="newgroup"><a href="#">registration</a></li>
+            <li class="newgroup"><a href="#">ACGIP home page</a></li>
+            <li><a href="#">tour Sante Fe</a></li>
+            <li><a href="#">links</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h1>Conference Registration Form</h1>
+        <p>Required Item (*)</p>
+        <!-- Created a form as a base for the rest of the webform. -->
+        <form action="http://www.example.com/cg/register" method="POST">
+            <!-- Title -->
+            <!-- Created as the first part of the form and uses the element label with is a title in a sense it just allows you to add a title to your form topic. Using the input selector you are able to specify what you want the part of the form to look like and in this case it was a section to fill out with text based off a data list that we have created using the dataList element. We then link this in using the list attribute it will display the list that we created using the element option and given a value. -->
+            <label for="title">Title</label>
+            <input type="text" id="titleBox" list="dataList">
+            <datalist id="dataList">
+                <option value="Mr." />
+                <option value="Mrs." />
+                <option value="Ms." />
+                <option value="Prof." />
+                <option value="Dr." />
+                <option value="Assist. Prof." />
+                <option value="Assoc. Prof." />
+            </datalist>
+            <!-- first name -->
+            <!-- This part of the form is text based and is required to complete the form. -->
+            <label for="firstName">First Name*</label>
+            <input type="text" id="fnBox" required>
+            <!-- last name -->
+            <!-- This part of the form is text based and is required to complete the form. -->
+            <label for="lastName">Last Name*</label>
+            <input type="text" id="lnBox" required>
+            <!-- Address -->
+            <!-- This part of the form is text based and is required to complete the form. Also utilizes a text area to allow for more text to be input and makes it easier to see this text.
+ -->
+            <label for="address">Address*</label>
+            <textarea type="text" id="addBox" required></textarea>
+            <!-- Company or University -->
+            <!-- This part of the form is text based. -->
+            <label for="group">Company or University</label>
+            <input type="text" id="groupBox">
+            <!-- Email -->
+            <label for="email">E-mail*</label>
+            <!-- This part of the form is email based (meaning it wont let you continue without text before and after an @ symbol) and is required to complete the form.
+ -->
+            <input type="email" id="mailBox" required>
+            <!-- Phone Number -->
+            <!-- This part of the form is tel based  (if it is accessed on a mobile device it will only bring up the number pad and text that is not numbers won't be accepted) and is required to complete the form the pattern is used for the validation of the format of the number to make sure the server does not get overloaded with false info. Placeholder is exactly what is says it just a placeholder that disappears when the user goes to enter text. Usually used as a guide.-->
+            <label for="phoneNumber">Phone Number*</label>
+            <input type="tel" id="phoneBox" required placeholder="(nnn) nnn-nnnn" pattern="^\d{10}$|^(\(\d{3}\)\s*)?\d{3}[\s-]?\d{4}$">
+            <!-- Membership -->
+            <!-- This part of the form is text based and is required to complete the form. The pattern is used for the validation of the format of the number to make sure the server does not get overloaded with false info. Placeholder is exactly what is says it just a placeholder that disappears when the user goes to enter text. Usually used as a guide.-->
+            <label for="acgipID">ACGIP Membership Number</label>
+            <input type="text" id="idBox" placeholder="acgip-nnnnnn" pattern="^acgip\-\d{6}$">
+            <!-- Registration Category -->
+            <!-- This one is slightly different from the rest as it does not have an input instead it has a select element meaning that in this section you will be able to select an answer and it will stay there there is nothing to type or add manually.-->
+            <label for="registrationCategory">Registration Category</label>
+            <select name="registerType" id="regList">
+                <option value="ACGIP Member">ACGIP Member ($695)</option>
+                <option value="“Non-Member">Non-Member ($795)</option>
+                <option value="Student">Student ($310)</option>
+                <option value="Poster">Poster ($95)</option>
+                <option value="Guest">Guest ($35)</option>
+            </select>
+            <!-- A submit button that lets you submit and it uses the value attribute which lets you choose what the button will display. -->
+            <p> <input type="submit" value="Continue"></p>
+        </form>
+    </section>
+
+    <aside>
+        <dl>
+            <dt>ACGIP Member ($695)</dt>
+            <dd>Eligible to attend all sessions and banquet</dd>
+            <dt>Non-Member ($795)</dt>
+            <dd>Eligible to attend all sessions and banquet</dd>
+            <dt>Student ($310)</dt>
+            <dd>Eligible to attend all sessions. <a href="#">Proof</a> of
+                student status required</dd>
+            <dt>Poster ($95)</dt>
+            <dd>Eligible to attend display hall and vendor stations</dd>
+            <dt>Guest ($35)</dt>
+            <dd>Eligible to attend banquet only</dd>
+        </dl>
+    </aside>
+
+    <footer>
+        Association of Computer Graphics and Image Processing
+    </footer>
+</body>
+
+</html>

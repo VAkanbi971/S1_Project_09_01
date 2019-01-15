@@ -1,0 +1,40 @@
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 7
+   Case Problem 1
+
+   ACGIP Registration Validation Style Sheet
+   Author: Victor Akanbi
+   Date:   1.14.19
+
+   Filename: cg_validate.css
+
+*/
+
+/* Validation Styles */
+/* By selecting input select and textarea elements with a pseudo class of focus I change their background color when they are selected. */
+input:focus,
+select:focus,
+textarea:focus {
+    background-color: rgb(245, 245, 140);
+}
+
+/* When the fnBox, lnBox, addBox, mailBox, phoneBox, and idBox controls have the focus and are valid, the background color is changed and there will be an image to indicate that the field has been answered correctly and or completely*/
+#fnBox:focus:valid,
+#lnBox:focus:valid,
+#addBox:focus:valid,
+#mailBox:focus:valid,
+#phoneBox:focus:valid,
+#idBox:focus:valid {
+    background: rgb(220, 255, 220) url(cg_valid.png) right/contain no-repeat;
+}
+
+/* When the fnBox, lnBox, addBox, mailBox, phoneBox, and idBox controls have the focus and are valid, the background color is changed and there will be an image to indicate that the field has been answered incorrectly.* */
+#fnBox:focus:invalid,
+#lnBox:focus:invalid,
+#addBox:focus:invalid,
+#mailBox:focus:invalid,
+#phoneBox:focus:invalid,
+#idBox:focus:invalid {
+    background: rgb(255, 232, 232) url(cg_invalid.png) right/contain no-repeat;
+}
